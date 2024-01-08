@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int** matrixMutiplication(int** matrix1, int** matrix2, int rows1, int cols1, int cols2) {
-	int** result = new int* [rows1]; //2Â÷¿ø ¹è¿­
+	int** result = new int* [rows1]; //2ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­
 	for (int i = 0; i < rows1; i++)
 		result[i] = new int[cols2]; //rows1 by cols2 : result
 
@@ -9,7 +9,7 @@ int** matrixMutiplication(int** matrix1, int** matrix2, int rows1, int cols1, in
 		for (int j = 0; j < cols2; j++)
 		{
 			result[i][j] = 0; //default:0;
-			for (int k = 0; k < cols1; k++) //k:cols1 0ºÎÅÍ cols-1±îÁö/
+			for (int k = 0; k < cols1; k++) //k:cols1 0ï¿½ï¿½ï¿½ï¿½ cols-1ï¿½ï¿½ï¿½ï¿½/
 				result[i][j] += matrix1[i][k] + matrix2[k][j];
 		}
 	}
@@ -34,52 +34,53 @@ void freeMatrix(int** matrix, int rows) {
 
 int main(void) {
 	int rows1, cols1, rows2, cols2;
-	cout << "Ã¹ ¹øÂ° Çà·ÄÀÇ Çà °³¼ö: ";
+	cout << "Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ";
 	cin >> rows1;
-	cout << "Ã¹ ¹øÂ° Çà·ÄÀÇ ¿­ °³¼ö: ";
+	cout << "Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ";
 	cin >> cols1;
-	cout << "µÎ ¹øÂ° Çà·ÄÀÇ Çà °³¼ö: ";
+	cout << "ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ";
 	cin >> rows2;
-	cout << "µÎ ¹øÂ° Çà·ÄÀÇ ¿­ °³¼ö: ";
+	cout << "ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ";
 	cin >> cols2;
 
 	int** matrix1 = new int* [rows1];
 	int** matrix2 = new int* [rows2];
 
-	cout << "\nÃ¹ ¹øÂ° Çà·Ä ÀÔ·Â: " << endl;
+	cout << "\nÃ¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: " << endl;
 	for (int i{ 0 }; i < rows1; i++)
 	{
 		matrix1[i] = new int[cols1];
 		for (int j{ 0 }; j < cols1; j++)
 		{
-			cout << "Çà " << i + 1 << ", ¿­ " << j + 1 << ": ";
+			cout << "ï¿½ï¿½ " << i + 1 << ", ï¿½ï¿½ " << j + 1 << ": ";
 			cin >> matrix1[i][j];
 		}
 	}
 
-	cout << "\nµÎ ¹øÂ° Çà·Ä ÀÔ·Â: " << endl;
+	cout << "\nï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½: " << endl;
 	for (int i{ 0 }; i < rows2; i++)
 	{
 		matrix2[i] = new int[cols2];
 		for (int j{ 0 }; j < cols2; j++)
 		{
-			cout << "Çà " << i + 1 << ", ¿­ " << j + 1 << ": ";
+			cout << "ï¿½ï¿½ " << i + 1 << ", ï¿½ï¿½ " << j + 1 << ": ";
 			cin >> matrix2[i][j];
 		}
 	}
 
 	int** result = matrixMutiplication(matrix1, matrix2, rows1, cols1, cols2);
 
-	cout << "\nÃ¹ ¹øÂ° Çà·Ä: " << endl;
+	cout << "\nÃ¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½: " << endl;
 	printMatrix(matrix1, rows1, cols1);
-	cout << "µÎ ¹øÂ° Çà·Ä: " << endl;
+	cout << "ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½: " << endl;
 	printMatrix(matrix2, rows2, cols2);
-	cout << "°ö¼À °á°ú: " << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½: " << endl;
 	printMatrix(result, rows1, cols2);
 
 	freeMatrix(matrix1, rows1);
 	freeMatrix(matrix2, rows2);
 	freeMatrix(result, rows1);
-
+	//hello;
 	return 0;
+
 }
